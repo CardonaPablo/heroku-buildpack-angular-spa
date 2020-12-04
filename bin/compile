@@ -51,12 +51,13 @@ fi
 status "Downloading and installing node"
 status "Node Version"
 status $node_version
-node_url="https://nodejs.og/dist/latest/node-v$node_version-linux-x64.tar.gz"
+node_url="https://nodejs.org/dist/latest/node-v$node_version-linux-x64.tar.gz"
 status "Node URL"
 status $node_url
 status "Build directory"
 status $build_dir
-curl $node_url -s -o | gzip -C $build_dir
+
+curl $node_url -s -o - | tar xzf - -C $build_dir
 
 status "Made it past cURL"
 # Move node (and npm) into ./vendor and make them executable
