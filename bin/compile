@@ -50,7 +50,7 @@ fi
 # Download node from Heroku's S3 mirror of nodejs.org/dist
 status "Downloading and installing node"
 node_url="http://s3pository.heroku.com/node/v$node_version/node-v$node_version-linux-x64.tar.gz"
-node_url="https://nodejs.org/dist/latest/node-${VERSION:-$(wget -qO- https://nodejs.org/dist/latest/ | grep '^.*>node-(.*)-linux-arm64\.tar.gz$<\/a>'"
+node_url="https://nodejs.org/dist/latest/node-${VERSION:-$(wget -qO- https://nodejs.org/dist/latest/ | grep '.*>node-(.*)-linux-arm64\.tar.gz<\/a>'"
 status "Node URL"
 status $node_url
 status "Build directory"
