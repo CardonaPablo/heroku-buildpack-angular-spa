@@ -175,5 +175,8 @@ status "After removing dirs"
 #  cp -r $build_dir/bower_components $cache_dir/
 #fi
 
+status "Installing angular-cli"
+npm install -g @angular/cli
+
 status "Building application $build_env distribution"
 ng build --configuration=$build_env
