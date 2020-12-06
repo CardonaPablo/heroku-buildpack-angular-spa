@@ -174,6 +174,8 @@ status "After removing dirs"
 #  status "Caching bower_components directory for future builds"
 #  cp -r $build_dir/bower_components $cache_dir/
 #fi
+status "Installing gulp"
+npm install gulp
 
 status "Building application $build_env distribution"
 node_modules/gulp/bin/gulp.js build --environment $build_env | indent
