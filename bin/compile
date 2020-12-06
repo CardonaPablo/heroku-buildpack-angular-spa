@@ -129,6 +129,7 @@ fi
 
 status "Installing bower which is required by other dependencies"
 npm install bower --quiet --userconfig $build_dir/.npmrc 2>&1 | indent
+bower init
 PATH=$build_dir/node_modules/bower/bin:$PATH
 
 status "Installing dependencies"
@@ -165,9 +166,9 @@ cp -r $build_dir/.heroku $cache_dir/node
 status "Cleaning up node-gyp and npm artifacts"
 rm -rf "$build_dir/.node-gyp"
 rm -rf "$build_dir/.npm"
-
+status "After removing dirs"
 bower install --quiet | indent
-
+status "After bower install"
 # If app has a bower_components directory, cache it.
 if test -d $build_dir/bower_components; then
   status "Caching bower_components directory for future builds"
