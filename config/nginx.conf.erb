@@ -45,10 +45,8 @@ http {
       }
     <% end %>
 
-    <% if ENV["BASIC_AUTH_USER"] && ENV["BASIC_AUTH_PASSWORD"] %>
       auth_basic "Restricted";
-      auth_basic_user_file <%= "#{ENV["HOME"]}/config/htpasswd" %>;
-    <% end %>
+      auth_basic_user_file <%= "#{ENV["HOME"]}/config/.htpasswd" %>;
 
     <% if ENV["API_URL"] %>
       location <%= ENV["API_PREFIX_PATH"] || "/api/" %> {
