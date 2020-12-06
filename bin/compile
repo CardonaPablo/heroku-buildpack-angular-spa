@@ -83,7 +83,7 @@ cd $build_dir
 
 status "Downloading and installing pcre"
 pcre_version=${PCRE_VER:-8.36}
-pcre_url="ftp://ftp.pcre.org/pub/pcre/pcre$pcre_version.tar.gz"
+pcre_url="ftp://ftp.pcre.org/pub/pcre/pcre-$pcre_version.tar.gz"
 status "PCRE URL"
 status $pcre_url
 curl $pcre_url | tar xzf - -C $build_dir/vendor
