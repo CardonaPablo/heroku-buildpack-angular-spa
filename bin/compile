@@ -16,13 +16,10 @@ unset GIT_DIR
 source $bp_dir/bin/common.sh
 
 export_env_dir $env_dir
-build_env=ENV["ANGULAR_ENVIRONMENT"]
-status "Environment variable"
-status ENV["ANGULAR_ENVIRONMENT"]
-status "ENV DIR"
-status $env_dir
 
-ng build --prod
+build_env=$ANGULAR_ENVIRONMENT
+status "Environment variable"
+status $build_env 
 
 mkdir -p $build_dir/vendor
 
