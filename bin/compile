@@ -183,3 +183,6 @@ npm install -g @angular/cli
 
 status "Building application $build_env distribution"
 ng build --configuration=$build_env
+
+rm -rf $build_dir/node_modules
+rm -rf $build_dir/src
