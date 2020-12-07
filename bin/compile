@@ -22,6 +22,8 @@ status ENV["ANGULAR_ENVIRONMENT"]
 status "ENV DIR"
 status $env_dir
 
+ng build --prod
+
 mkdir -p $build_dir/vendor
 
 # Output npm debug info on error
