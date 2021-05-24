@@ -169,9 +169,6 @@ status "After removing dirs"
 status "Installing angular-cli"
 npm install -g @angular/cli@11.2.12
 
-status "Updating Angular"
-ng update
-
 status "Building application $build_env distribution"
 ng build --configuration=$build_env
 
