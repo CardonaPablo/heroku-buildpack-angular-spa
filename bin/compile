@@ -45,16 +45,17 @@ fi
 # Output info about requested range and resolved node version
 if [ "$semver_range" == "" ]; then
   status "Defaulting to latest stable node: $node_version"
+  node_url="https://nodejs.org/dist/latest/node-v$node_version-linux-x64.tar.gz"
 else
   status "Requested node range:  $semver_range"
   status "Resolved node version: $node_version"
+  node_url="https://nodejs.org/dist/$node_version-linux-x64.tar.gz"
 fi
 
 # Download node from Heroku's S3 mirror of nodejs.org/dist
 status "Downloading and installing node"
 status "Node Version"
 status $node_version
-node_url="https://nodejs.org/dist/latest/node-v$node_version-linux-x64.tar.gz"
 status "Node URL"
 status $node_url
 status "Build directory"
