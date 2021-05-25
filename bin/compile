@@ -167,10 +167,10 @@ npm install -g @angular/cli@12.0.1
 status "Angular version"
 ng version
 
-status "Trying to update"
-ng update @angular/cdk --force
-ng update @angular/core --force
-ng update @angular/material --force
+# status "Trying to update"
+# ng update @angular/cdk --force
+# ng update @angular/core --force
+# ng update @angular/material --force
 
 status "Building application $build_env distribution"
 ng build --configuration=$build_env
