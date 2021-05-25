@@ -168,9 +168,9 @@ status "Angular version"
 ng version
 
 status "Trying to update"
-ng update @angular/cdk
-ng update @angular/core
-ng update @angular/material
+ng update @angular/cdk --force
+ng update @angular/core --force
+ng update @angular/material --force
 
 status "Building application $build_env distribution"
 ng build --configuration=$build_env
