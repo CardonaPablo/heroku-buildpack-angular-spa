@@ -162,15 +162,18 @@ rm -rf "$build_dir/.npm"
 status "After removing dirs"
 
 status "Installing angular-cli"
-npm install -g @angular/cli@11.2.12
+npm install -g @angular/cli@12.0.1
 
 status "Angular version"
 ng version
 
+status "Trying to update"
+ng update @angular/cdk
+ng update @angular/core
+ng update @angular/material
+
 status "Building application $build_env distribution"
 ng build --configuration=$build_env
-
-
 
 rm -rf $build_dir/node_modules
 rm -rf $build_dir/src
