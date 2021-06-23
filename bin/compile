@@ -2,7 +2,7 @@
 
 set -e            # fail fast
 set -o pipefail   # don't ignore exit codes when piping output
-set -x          # enable debugging
+# set -x          # enable debugging
 
 build_dir=$1
 cache_dir=$2
@@ -18,9 +18,6 @@ source $bp_dir/bin/common.sh
 export_env_dir $env_dir
 
 build_env=$ANGULAR_ENVIRONMENT
-status "Environment variable"
-status $build_env 
-
 mkdir -p $build_dir/vendor
 
 # Output npm debug info on error
@@ -72,7 +69,6 @@ mv $build_dir/node-v$node_version-linux-x64 $build_dir/vendor/node
 chmod +x $build_dir/vendor/node/bin/*
 PATH=$build_dir/vendor/node/bin:$PATH
 
-status "Adding boot script"
 cp $bp_dir/bin/boot.sh $build_dir
 
 status "Copying configs"
@@ -82,7 +78,7 @@ cp $bp_dir/config/mime.types $build_dir/config
 if [[ ! -f $build_dir/config/nginx.conf.erb ]]; then
   cp $bp_dir/config/nginx.conf.erb $build_dir/config
 else
-  status "Custom nginx config found"
+  status "Custom nginx config found ???????????????????????????????"
 fi
 
 cd $build_dir
@@ -90,10 +86,8 @@ cd $build_dir
 status "Downloading and installing pcre"
 pcre_version=${PCRE_VER:-8.36}
 pcre_url="ftp://ftp.pcre.org/pub/pcre/pcre-$pcre_version.tar.gz"
-status "PCRE URL"
 status $pcre_url
 curl $pcre_url | tar xzf - -C $build_dir/vendor
-status "Past cUrl pcre"
 mkdir $build_dir/vendor/pcre
 
 status "Downloading and installing nginx"
@@ -159,13 +153,12 @@ cp -r $build_dir/.heroku $cache_dir/node
 status "Cleaning up node-gyp and npm artifacts"
 rm -rf "$build_dir/.node-gyp"
 rm -rf "$build_dir/.npm"
-status "After removing dirs"
 
 status "Installing angular-cli"
 npm install -g @angular/cli@12.0.1
 
-status "Angular version"
-ng version
+# status "Angular version"
+# ng version
 
 # status "Trying to update"
 # ng update @angular/cdk --force
@@ -175,5 +168,5 @@ ng version
 status "Building application $build_env distribution"
 ng build --configuration=$build_env
 
-rm -rf $build_dir/node_modules
+# rm -rf $build_dir/node_modules
 rm -rf $build_dir/src
