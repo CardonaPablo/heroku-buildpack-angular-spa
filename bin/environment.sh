@@ -4,7 +4,7 @@ create_env_file() {
 	if [[ "${ANGULAR_ENVIRONMENT}" == "staging" ]]; then
 		target_file="${build_dir}/src/environments/environment.staging.ts"
 	elif [[ "${ANGULAR_ENVIRONMENT}" == "production"  ]]; then
-		target_file="${build_dir}/src/environments/environment.production.ts"
+		target_file="${build_dir}/src/environments/environment.prod.ts"
 	fi
 
 	> $target_file
