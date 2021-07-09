@@ -1,17 +1,11 @@
 create_env_file() {
 	build_dir=$1
 
-	echo "Directory"
-	echo $build_dir
-
 	if [[ "${ANGULAR_ENVIRONMENT}" == "staging" ]]; then
-		target_file="${build_dir}/src/environments/enviroment.staging.ts"
+		target_file="${build_dir}/src/environments/environment.staging.ts"
 	elif [[ "${ANGULAR_ENVIRONMENT}" == "production"  ]]; then
-		target_file="${build_dir}/src/environments/enviroment.production.ts"
+		target_file="${build_dir}/src/environments/environment.production.ts"
 	fi
-
-	echo "Target file"
-	echo $target_file
 
 	> $target_file
 
